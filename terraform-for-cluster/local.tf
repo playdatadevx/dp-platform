@@ -1,5 +1,5 @@
 locals {
-  region = "ap-northeast-2"
-  cluster_name = "DevX"
+  region = var.region 
+  cluster_name = var.cluster_name 
 
 }

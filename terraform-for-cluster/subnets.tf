@@ -9,7 +9,7 @@ resource "aws_subnet" "public_1" {
 
   tags = {
     Name = "public-sn-1a"
-    "kubernetes.io/cluster/DevX" = "shared"
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
     "kubernetes.io/role/elb" = 1
   }
 }
@@ -25,7 +25,7 @@ resource "aws_subnet" "public_2" {
 
   tags = {
     Name = "public-sn-2c"
-    "kubernetes.io/cluster/DevX" = "shared"
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
     "kubernetes.io/role/elb" = 1
   }
 }
@@ -40,7 +40,7 @@ resource "aws_subnet" "private_1" {
 
   tags = {
     Name = "private-sn-1a"
-    "kubernetes.io/cluster/DevX" = "shared"
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
     "kubernetes.io/role/internal-elb" = 1
   }
 }
@@ -54,7 +54,7 @@ resource "aws_subnet" "private_2" {
 
   tags = {
     Name = "private-sn-2c"
-    "kubernetes.io/cluster/DevX" = "shared"
+    "kubernetes.io/cluster/${local.cluster_name}" = "shared"
     "kubernetes.io/role/internal-elb" = 1
   }
 }

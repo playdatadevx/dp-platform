@@ -6,7 +6,7 @@ resource "helm_release" "cluster-autoscaler-controller" {
   namespace = "kube-system"
 
   values = [
-    "${file("values.yaml")}"
+    "${file("autoscaling_values.yaml")}"
   ]
 
   set {
