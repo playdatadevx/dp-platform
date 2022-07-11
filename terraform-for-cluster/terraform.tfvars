@@ -1,3 +1,3 @@
 region= "ap-northeast-2"
-cluster_name= "devx"
+cluster_name= "DevX"
 
