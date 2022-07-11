@@ -1,0 +1,16 @@
+server:
+  service:
+  
+    type: NodePort
+    namedTargetPort: false
+   
+  
+  ingress:
+    # -- Enable an ingress resource for the Argo CD server
+    enabled: true
+    # -- Additional ingress annotations
+    annotations: 
+      kubernetes.io/ingress.class: alb
+      alb.ingress.kubernetes.io/scheme: internet-facing
+  extraArgs:
+    - --insecure

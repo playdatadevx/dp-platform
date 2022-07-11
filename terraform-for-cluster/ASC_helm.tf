@@ -1,13 +1,9 @@
 resource "helm_release" "cluster-autoscaler-controller" {
   name = "cluster-autoscaler-controller"
 
-  repository = "https://nomer26.github.io/Charts/charts/stable"
+  repository = "https://nomer26.github.io/Charts/autoscaler_charts/stable"
   chart = "cluster-autoscaler"
   namespace = "kube-system"
-
-  values = [
-    "${file("autoscaling_values.yaml")}"
-  ]
 
   set {
     name = "clusterName"
@@ -18,6 +14,10 @@ resource "helm_release" "cluster-autoscaler-controller" {
     name = "annotations.rolearn"
     value = aws_iam_role.eks_cluster_autoscaler.arn
   }
+  
+  values = [
+    "${file("autoscaling_values.yaml")}"
+  ]
 
   depends_on = [
     aws_eks_node_group.nodes_general,
