@@ -1,0 +1,61 @@
+alertmanager:
+  persistentVolume:
+    enabled: true
+    accessModes:
+      - ReadWriteOnce
+
+    annotations: {}
+    existingClaim: ""
+
+    mountPath: /data
+    size: 2Gi
+    storageClass: "gp2"
+
+    subPath: ""
+  service:
+    type: NodePort
+  
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: alb
+      alb.ingress.kubernetes.io/scheme: internet-facing
+      alb.ingress.kubernetes.io/certificate-arn: $ARN 
+      alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+      alb.ingress.kubernetes.io/ssl-redirect: '443'
+      external-dns.alpha.kubernetes.io/hostname: prometheus-alert.devx88.click
+    hosts:
+      - ""
+    path: /
+    pathType: Prefix
+
+server:
+
+  persistentVolume:
+    enabled: true
+    accessModes:
+      - ReadWriteOnce
+
+    annotations: {}
+    existingClaim: ""
+    mountPath: /data
+
+    size: 8Gi
+    storageClass: "gp2"
+
+  service:
+    type: NodePort
+  
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: alb
+      alb.ingress.kubernetes.io/scheme: internet-facing
+      alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:756008830886:certificate/0e083507-8046-450c-a748-f79168c6503d
+      alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+      alb.ingress.kubernetes.io/ssl-redirect: '443'
+      external-dns.alpha.kubernetes.io/hostname: prometheus-server.devx88.click
+    hosts:
+      - ""
+    path: /
+    pathType: Prefix

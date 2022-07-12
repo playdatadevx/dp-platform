@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  externalDNS:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-07-12T06:11:24.283623728Z"
+    description: A Helm chart for Kubernetes
+    digest: 48807b334f39987bd9b7814f33e4019e716556d2f541491d36097375ebce5fd9
+    name: externalDNS
+    type: application
+    urls:
+    - externalDNS-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-07-12T06:11:24.283237717Z"

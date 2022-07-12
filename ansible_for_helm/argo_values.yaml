@@ -1,0 +1,23 @@
+server:
+  service:
+    type: NodePort
+    namedTargetPort: false
+   
+  
+  ingress:
+    # -- Enable an ingress resource for the Argo CD server
+    enabled: true
+    # -- Additional ingress annotations
+    annotations: 
+      kubernetes.io/ingress.class: alb
+      alb.ingress.kubernetes.io/scheme: internet-facing
+      alb.ingress.kubernetes.io/certificate-arn: $ARN
+      alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+      alb.ingress.kubernetes.io/ssl-redirect: '443'
+      external-dns.alpha.kubernetes.io/hostname: argo.devx88.click
+    hosts:
+      - ""
+    path: / 
+    pathType: Prefix
+  extraArgs:
+    - --insecure
