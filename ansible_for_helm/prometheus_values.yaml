@@ -1,0 +1,51 @@
+alertmanager:
+  persistentVolume:
+    enabled: true
+    accessModes:
+      - ReadWriteOnce
+
+    annotations: {}
+    existingClaim: ""
+
+    mountPath: /data
+    size: 2Gi
+    storageClass: "gp2"
+
+    subPath: ""
+  service:
+    type: NodePort
+  
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: alb
+      alb.ingress.kubernetes.io/scheme: internet-facing
+    hosts: 
+      - ""
+    path: /
+    pathType: Prefix
+
+server:
+
+  persistentVolume:
+    enabled: true
+    accessModes:
+      - ReadWriteOnce
+
+    annotations: {}
+    existingClaim: ""
+    mountPath: /data
+
+    size: 8Gi
+    storageClass: "gp2"
+
+  service:
+    type: NodePort
+  
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: alb
+      alb.ingress.kubernetes.io/scheme: internet-facing
+    hosts: 
+      - ""
