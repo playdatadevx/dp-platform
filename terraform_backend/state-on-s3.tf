@@ -1,3 +1,4 @@
+
 ## tfstate 파일용 lock 테이블
 resource "aws_dynamodb_table" "terraform_lock" {
   name = "tfstateLock"
