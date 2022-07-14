@@ -1,2 +1,3 @@
 terraform-for-cluster/.terraform/
 terraform-for-cluster/.terra*
+terraform_backend/.*
