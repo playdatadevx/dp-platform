@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-        CERT_ARN = credentials('arn')
+        CERT_ARN = credentials('CERT_ARN')
         AWS_DEFAULT_REGION = "ap-northeast-2"
         AWS_ACCESS_KEY_ID = credentials("access_key_id")
         AWS_SECRET_ACCESS_KEY = credentials("secret_access_key")

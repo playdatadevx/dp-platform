@@ -8,8 +8,8 @@ datasources:
       access: proxy
       isDefault: true
 
-adminUser: admin
-adminPassword: admin123!
+adminUser: devx
+adminPassword: encore123!
 
 service:
   type: NodePort
