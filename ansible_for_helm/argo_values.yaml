@@ -14,7 +14,7 @@ server:
       alb.ingress.kubernetes.io/certificate-arn: REPLACE-ARN
       alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
       alb.ingress.kubernetes.io/ssl-redirect: '443'
-      external-dns.alpha.kubernetes.io/hostname: argo.devx88.click
+      external-dns.alpha.kubernetes.io/hostname: argo.devxmonitor.click
     hosts:
       - ""
     path: / 
