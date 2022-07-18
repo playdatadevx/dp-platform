@@ -23,10 +23,10 @@ alertmanager:
       alb.ingress.kubernetes.io/certificate-arn: REPLACE-ARN
       alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
       alb.ingress.kubernetes.io/ssl-redirect: '443'
-      external-dns.alpha.kubernetes.io/hostname: prometheus-alert.devxmonitor.click
+      external-dns.alpha.kubernetes.io/hostname: www.devxmonitor.click
     hosts:
       - ""
-    path: /
+    path: /pm-alert
     pathType: Prefix
 
 server:
@@ -54,8 +54,8 @@ server:
       alb.ingress.kubernetes.io/certificate-arn: REPLACE-ARN
       alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
       alb.ingress.kubernetes.io/ssl-redirect: '443'
-      external-dns.alpha.kubernetes.io/hostname: prometheus-server.devxmonitor.click
+      external-dns.alpha.kubernetes.io/hostname: www.devxmonitor.click
     hosts:
       - ""
-    path: /
+    path: /pm-server
     pathType: Prefix
