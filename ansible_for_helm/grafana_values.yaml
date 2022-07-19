@@ -28,9 +28,10 @@ ingress:
     alb.ingress.kubernetes.io/certificate-arn: REPLACE-ARN
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
     alb.ingress.kubernetes.io/ssl-redirect: '443'
-    external-dns.alpha.kubernetes.io/hostname: grafana.devxmonitor.click
-  hosts: 
-    - ""
+    alb.ingress.kubernetes.io/group.name: "devx"
+    external-dns.alpha.kubernetes.io/hostname: grafana.devx88.click
+  hosts:
+    - "grafana.devx88.click"
   path: /
   pathType: Prefix
 

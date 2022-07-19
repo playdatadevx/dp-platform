@@ -15,7 +15,7 @@ resource "aws_dynamodb_table" "terraform_lock" {
 ## 로그 저장용 버킷
 
 resource "aws_s3_bucket" "logs" {
-  bucket = "encore.devx.logs"
+  bucket = "kr.devx.logs"
 }
 resource "aws_s3_bucket_acl" "log-delivery-write" {
   bucket = aws_s3_bucket.logs.id
@@ -24,7 +24,7 @@ resource "aws_s3_bucket_acl" "log-delivery-write" {
 
 ## tfstate 저장용 버킷
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "encore.devx.terraform.state"
+  bucket = "kr.devx.terraform.state"
   versioning {
     enabled = true
   }
