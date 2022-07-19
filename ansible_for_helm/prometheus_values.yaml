@@ -1,0 +1,63 @@
+alertmanager:
+  persistentVolume:
+    enabled: true
+    accessModes:
+      - ReadWriteOnce
+
+    annotations: {}
+    existingClaim: ""
+
+    mountPath: /data
+    size: 2Gi
+    storageClass: "gp2"
+
+    subPath: ""
+  service:
+    type: NodePort
+  
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: alb
+      alb.ingress.kubernetes.io/scheme: internet-facing
+      alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:596152156334:certificate/0bf1a94d-bdb8-4f34-afa7-f9820581a4ba
+      alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+      alb.ingress.kubernetes.io/ssl-redirect: '443'
+      alb.ingress.kubernetes.io/group.name: "devx"
+      external-dns.alpha.kubernetes.io/hostname: pm-alert.devxmonitor.click
+    hosts:
+      - "pm-alert.devxmonitor.click"
+    path: /
+    pathType: Prefix
+
+server:
+
+  persistentVolume:
+    enabled: true
+    accessModes:
+      - ReadWriteOnce
+
+    annotations: {}
+    existingClaim: ""
+    mountPath: /data
+
+    size: 8Gi
+    storageClass: "gp2"
+
+  service:
+    type: NodePort
+  
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: alb
+      alb.ingress.kubernetes.io/scheme: internet-facing
+      alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:596152156334:certificate/0bf1a94d-bdb8-4f34-afa7-f9820581a4ba
+      alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+      alb.ingress.kubernetes.io/ssl-redirect: '443'
+      alb.ingress.kubernetes.io/group.name: "devx"
+      external-dns.alpha.kubernetes.io/hostname: pm-server.devxmonitor.click
+    hosts:
+      - "pm-server.devxmonitor.click"
+    path: /
+    pathType: Prefix

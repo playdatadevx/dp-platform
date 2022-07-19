@@ -1,0 +1,49 @@
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+    - name: Prometheus
+      type: prometheus
+      url: http://prom-prometheus-server.monitoring.svc.cluster.local
+      access: proxy
+      isDefault: true
+
+adminUser: devx
+adminPassword: encore123!
+
+service:
+  type: NodePort
+  port: 80
+  targetPort: 3000
+    # targetPort: 4181 To be used with a proxy extraContainer
+  annotations: {}
+  labels: {}
+  portName: service
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:596152156334:certificate/0bf1a94d-bdb8-4f34-afa7-f9820581a4ba
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    alb.ingress.kubernetes.io/group.name: "devx"
+    external-dns.alpha.kubernetes.io/hostname: grafana.devxmonitor.click
+  hosts:
+    - "grafana.devxmonitor.click"
+  path: /
+  pathType: Prefix
+
+persistence:
+  type: pvc
+  enabled: enable
+  storageClassName: gp2
+  accessModes:
+    - ReadWriteOnce
+  size: 10Gi
+  # annotations: {}
+  finalizers:
+    - kubernetes.io/pvc-protection
+  # subPath: ""
+  # existingClaim:
