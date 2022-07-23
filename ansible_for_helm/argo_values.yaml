@@ -1,6 +1,6 @@
 server:
   service:
-    type: NodePort
+    type: ClusterIP
     namedTargetPort: false
    
   
