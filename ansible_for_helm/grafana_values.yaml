@@ -29,9 +29,9 @@ ingress:
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
     alb.ingress.kubernetes.io/ssl-redirect: '443'
     alb.ingress.kubernetes.io/group.name: "devx"
-    external-dns.alpha.kubernetes.io/hostname: grafana.devx88.click
+    external-dns.alpha.kubernetes.io/hostname: grafana.devxmonitor.click
   hosts:
-    - "grafana.devx88.click"
+    - "grafana.devxmonitor.click"
   path: /
   pathType: Prefix
 

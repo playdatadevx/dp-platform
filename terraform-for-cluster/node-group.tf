@@ -44,8 +44,9 @@ resource "aws_eks_node_group" "nodes_general" {
   node_role_arn = aws_iam_role.nodes_general.arn
 
   subnet_ids = [
-    aws_subnet.private_1.id,
-    aws_subnet.private_2.id
+    data.aws_subnet.private_sn_a.id,
+    data.aws_subnet.private_sn_b.id,
+    data.aws_subnet.private_sn_c.id
   ]
 
   scaling_config {

@@ -24,9 +24,9 @@ alertmanager:
       alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
       alb.ingress.kubernetes.io/ssl-redirect: '443'
       alb.ingress.kubernetes.io/group.name: "devx"
-      external-dns.alpha.kubernetes.io/hostname: pm-alert.devx88.click
+      external-dns.alpha.kubernetes.io/hostname: pm-alert.devxmonitor.click
     hosts:
-      - "pm-alert.devx88.click"
+      - "pm-alert.devxmonitor.click"
     path: /
     pathType: Prefix
 
@@ -56,8 +56,8 @@ server:
       alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
       alb.ingress.kubernetes.io/ssl-redirect: '443'
       alb.ingress.kubernetes.io/group.name: "devx"
-      external-dns.alpha.kubernetes.io/hostname: pm-server.devx88.click
+      external-dns.alpha.kubernetes.io/hostname: pm-server.devxmonitor.click
     hosts:
-      - "pm-server.devx88.click"
+      - "pm-server.devxmonitor.click"
     path: /
     pathType: Prefix

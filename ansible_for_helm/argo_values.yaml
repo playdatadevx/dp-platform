@@ -1,6 +1,6 @@
 server:
   service:
-    type: NodePort
+    type: ClusterIP
     namedTargetPort: false
    
   
@@ -15,9 +15,9 @@ server:
       alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
       alb.ingress.kubernetes.io/ssl-redirect: '443'
       alb.ingress.kubernetes.io/group.name: "devx"
-      external-dns.alpha.kubernetes.io/hostname: argo.devx88.click
+      external-dns.alpha.kubernetes.io/hostname: argo.devxmonitor.click
     hosts:
-      - "argo.devx88.click"
+      - "argo.devxmonitor.click"
     path: /
     pathType: Prefix
   extraArgs:
