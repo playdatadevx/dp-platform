@@ -2,16 +2,29 @@
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Sid": "AllowAccessToSecretsManager",
       "Effect": "Allow",
-      "Principal": {
-        "Federated": "${OIDC_ARN}"
-      },
-      "Action": "sts:AssumeRoleWithWebIdentity",
-      "Condition": {
-        "StringEquals": {
-          "${OIDC_URL}:sub": "system:serviceaccount:${NAMESPACE}:${SA_NAME}"
-        }
-      }
+      "Action": [
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:ListSecrets",
+        "secretsmanager:ListSecretVersionIds"
+
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowAccessToSystemsManager",
+      "Effect": "Allow",
+      "Action": [
+        "ssm:DescribeParameters",
+        "ssm:GetParameter",
+        "ssm:GetParameterHistory",
+        "ssm:GetParameters",
+        "ssm:GetParametersByPath"
+
+      ],
+      "Resource": "*"
     }
   ]
 }

@@ -6,7 +6,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "kr.devx.terraform.state"
+    bucket = "playdata.devx.terraform.state"
     key = "devx/terraform.tfstate"
     region = "ap-northeast-2"
     encrypt = true
@@ -17,4 +17,3 @@ terraform {
 provider "aws" {
   region = local.region
 }
-

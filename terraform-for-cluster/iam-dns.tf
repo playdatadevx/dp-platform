@@ -34,4 +34,3 @@ resource "aws_iam_role_policy" "external_dns" {
   role = aws_iam_role.external_dns.id
   policy = data.aws_iam_policy_document.external_dns.json
 }
-
