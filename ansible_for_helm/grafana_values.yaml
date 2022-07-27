@@ -25,13 +25,13 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/certificate-arn: REPLACE-ARN
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:596152156334:certificate/0bf1a94d-bdb8-4f34-afa7-f9820581a4ba
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
     alb.ingress.kubernetes.io/ssl-redirect: '443'
     alb.ingress.kubernetes.io/group.name: "devx"
-    external-dns.alpha.kubernetes.io/hostname: grafana.devx88.click
+    external-dns.alpha.kubernetes.io/hostname: grafana.devxmonitor.click
   hosts:
-    - "grafana.devx88.click"
+    - "grafana.devxmonitor.click"
   path: /
   pathType: Prefix
 
