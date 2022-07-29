@@ -35,15 +35,3 @@ ingress:
   path: /
   pathType: Prefix
 
-persistence:
-  type: pvc
-  enabled: enable
-  storageClassName: gp2
-  accessModes:
-    - ReadWriteOnce
-  size: 10Gi
-  # annotations: {}
-  finalizers:
-    - kubernetes.io/pvc-protection
-  # subPath: ""
-  # existingClaim:

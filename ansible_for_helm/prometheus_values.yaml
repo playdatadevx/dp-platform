@@ -1,17 +1,4 @@
 alertmanager:
-  persistentVolume:
-    enabled: true
-    accessModes:
-      - ReadWriteOnce
-
-    annotations: {}
-    existingClaim: ""
-
-    mountPath: /data
-    size: 2Gi
-    storageClass: "gp2"
-
-    subPath: ""
   service:
     type: NodePort
   
@@ -41,7 +28,7 @@ server:
     existingClaim: ""
     mountPath: /data
 
-    size: 8Gi
+    size: 10Gi
     storageClass: "gp2"
 
   service:
