@@ -1,3 +1,6 @@
 terraform-for-cluster/.terraform/
 terraform-for-cluster/.terra*
 terraform_backend/.*
+.gitsecret/keys/random_seed
+!*.secret
+terraform-for-cluster/terraform.tfvars
