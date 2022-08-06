@@ -8,6 +8,7 @@ variable "cluster_name" {
 
 variable "vpc_id" {
   default = ""
+    sensitive = true
 }
 
 variable "public_sn_a" {

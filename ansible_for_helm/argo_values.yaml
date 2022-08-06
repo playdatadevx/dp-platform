@@ -1,6 +1,6 @@
 server:
   service:
-    type: ClusterIP
+    type: NodePort
     namedTargetPort: false
    
   
@@ -11,7 +11,7 @@ server:
     annotations: 
       kubernetes.io/ingress.class: alb
       alb.ingress.kubernetes.io/scheme: internet-facing
-      alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-northeast-2:596152156334:certificate/0bf1a94d-bdb8-4f34-afa7-f9820581a4ba
+      alb.ingress.kubernetes.io/certificate-arn: REPLACE-ARN
       alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
       alb.ingress.kubernetes.io/ssl-redirect: '443'
       alb.ingress.kubernetes.io/group.name: "devx"

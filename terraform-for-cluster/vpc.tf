@@ -5,6 +5,7 @@ data "aws_vpc" "main" {
 output "vpc_id" {
   value       = data.aws_vpc.main.id
   description = "VPC ID"
+  sensitive = true
 }
 
 

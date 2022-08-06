@@ -22,22 +22,22 @@ pipeline {
         }
         stage('Terraform_backend Init'){
             steps{
-                sh 'terraform -chdir=./terraform_backend init'                
+                sh 'terraform -chdir=./terraform_backend init -no-color'                
             }
         }
         stage('Terraform_backend apply'){
             steps{
-                sh 'terraform -chdir=./terraform_backend apply --auto-approve'                
+                sh 'terraform -chdir=./terraform_backend apply --auto-approve -no-color'                
             }
         }
         stage('Terraform Init'){
             steps{
-                sh 'terraform -chdir=./terraform-for-cluster init'                
+                sh 'terraform -chdir=./terraform-for-cluster init -no-color'                
             }
         }
         stage('Terraform apply'){
             steps{
-                sh 'terraform -chdir=./terraform-for-cluster apply --auto-approve'                
+                sh 'terraform -chdir=./terraform-for-cluster apply --auto-approve -no-color'                
             }
         }
         stage('Context Connecting'){
