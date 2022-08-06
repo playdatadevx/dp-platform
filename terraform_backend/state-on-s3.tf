@@ -15,7 +15,7 @@ resource "aws_dynamodb_table" "terraform_lock" {
 ## 로그 저장용 버킷
 
 resource "aws_s3_bucket" "logs" {
-  bucket = "playdata.devx.logs"
+  bucket = "playdata4.devx.logs"
 }
 resource "aws_s3_bucket_acl" "log-delivery-write" {
   bucket = aws_s3_bucket.logs.id
@@ -24,16 +24,13 @@ resource "aws_s3_bucket_acl" "log-delivery-write" {
 
 ## tfstate 저장용 버킷
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "playdata.devx.terraform.state"
+  bucket = "playdata4.devx.terraform.state"
   versioning {
     enabled = true
   }
   logging {
     target_bucket = "${aws_s3_bucket.logs.id}"
     target_prefix = "log/"
-  }
-  lifecycle {
-    prevent_destroy = true
   }
 }
 resource "aws_s3_bucket_acl" "terraform_state_acl" {
